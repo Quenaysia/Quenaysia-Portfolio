@@ -1,0 +1,43 @@
+<head>
+  <title>Module 5 – Car Sales</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Quenaysia’s Car Sales</h1>
+    <p>Enter a vehicle and paint color to see your choice.</p>
+  </header>
+
+  <main>
+    <form id="salesForm" onsubmit="return false" aria-label="Car sales form">
+      <div class="field">
+        <label for="vehicle">Vehicle (enter <strong>car</strong> or <strong>truck</strong>):</label>
+        <input id="vehicle" name="vehicle" type="text" placeholder="car or truck" required>
+      </div>
+
+      <div class="field">
+        <label for="color">Color (choose: <strong>black, blue, red, white</strong>):</label>
+        <input id="color" name="color" type="text" placeholder="black, blue, red, or white" required>
+      </div>
+
+      
+      <button id="buyBtn" type="button" onclick="buyVehicle()">Buy Vehicle</button>
+    </form>
+
+    
+    <div class="result">
+      <label for="finalOutput">Selected Vehicle:</label>
+      <span id="finalOutput" aria-live="polite"></span>
+    </div>
+
+    
+    <figure id="imageArea">
+      <img id="vehicleImg" alt="" />
+      <figcaption id="imgCaption"></figcaption>
+    </figure>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

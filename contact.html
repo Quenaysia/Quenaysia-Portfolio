@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: gray;
+            text-align: center;
+        }
+        h1 {
+            color: black;
+        }
+        form {
+            background-color: #d9d9d9; /* light gray box */
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid black;
+            text-align: left;
+        }
+        p.instructions {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 300px;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #000;
+        }
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+        .buttons {
+            margin-top: 15px;
+            text-align: left;
+            margin-left: 100px;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 80px;
+            padding: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 1px solid #000;
+            background-color: #e6e6e6;
+        }
+    </style>
+    <script>
+        // Show alert when page loads
+        window.onload = function() {
+            alert("Welcome to Amanda's Sports Tracking!");
+        }
+    </script>
+</head>
+<body>
+    <h1>Amanda's Sports Tracking</h1>
+
+    <form>
+        <p class="instructions">We would love to hear any comments or questions you may have regarding our application.</p>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone"><br>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments"></textarea><br>
+
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+</body>
+</html>

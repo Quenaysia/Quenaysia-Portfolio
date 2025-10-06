@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Grade Calculator</h1>
+    <form id="gradeForm">
+      <h3>Tests (2)</h3>
+      <label>Test 1: <input type="number" id="test1" min="0" max="100"></label>
+      <label>Test 2: <input type="number" id="test2" min="0" max="100"></label>
+
+      <h3>Quizzes (4)</h3>
+      <label>Quiz 1: <input type="number" id="quiz1" min="0" max="100"></label>
+      <label>Quiz 2: <input type="number" id="quiz2" min="0" max="100"></label>
+      <label>Quiz 3: <input type="number" id="quiz3" min="0" max="100"></label>
+      <label>Quiz 4: <input type="number" id="quiz4" min="0" max="100"></label>
+
+      <h3>Projects (6)</h3>
+      <label>Project 1: <input type="number" id="proj1" min="0" max="100"></label>
+      <label>Project 2: <input type="number" id="proj2" min="0" max="100"></label>
+      <label>Project 3: <input type="number" id="proj3" min="0" max="100"></label>
+      <label>Project 4: <input type="number" id="proj4" min="0" max="100"></label>
+      <label>Project 5: <input type="number" id="proj5" min="0" max="100"></label>
+      <label>Project 6: <input type="number" id="proj6" min="0" max="100"></label>
+
+      <button type="button" onclick="calculateGrade()">Calculate Grade</button>
+    </form>
+
+    <div class="result" id="overall"></div>
+    <div class="result" id="bonus"></div>
+  </div>
+
+  <script>
+    function calculateGrade() {
+      
+      let tests = [Number(document.getElementById("test1").value),
+                   Number(document.getElementById("test2").value)];
+
+      let quizzes = [Number(document.getElementById("quiz1").value),
+                     Number(document.getElementById("quiz2").value),
+                     Number(document.getElementById("quiz3").value),
+                     Number(document.getElementById("quiz4").value)];
+
+      let projects = [Number(document.getElementById("proj1").value),
+                      Number(document.getElementById("proj2").value),
+                      Number(document.getElementById("proj3").value),
+                      Number(document.getElementById("proj4").value),
+                      Number(document.getElementById("proj5").value),
+                      Number(document.getElementById("proj6").value)];
+
+      
+      let allGrades = [...tests, ...quizzes, ...projects];
+      let total = allGrades.reduce((a, b) => a + b, 0);
+      let average = (total / allGrades.length).toFixed(2);
+
+     
+      document.getElementById("overall").innerHTML =
+        "Overall Grade Average: " + average + "%";
+
+      
+      let testAvg = (tests.reduce((a,b)=>a+b,0) / tests.length).toFixed(2);
+      let quizAvg = (quizzes.reduce((a,b)=>a+b,0) / quizzes.length).toFixed(2);
+      let projectAvg = (projects.reduce((a,b)=>a+b,0) / projects.length).toFixed(2);
+
+      document.getElementById("bonus").innerHTML =
+        "Test Avg: " + testAvg + "% | Quiz Avg: " + quizAvg + "% | Project Avg: " + projectAvg + "%";
+    }
+  </script>
+</body>
+</html>
